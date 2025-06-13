@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  api:
+    build:
+      context: ./API
+    ports:
+      - "8600:8000"
+    container_name: iris_api
+
+  gui:
+    build:
+      context: ./web_GUI
+    ports:
+      - "8501:8501"
+    container_name: iris_gui
+    depends_on:
+      - api
+
